@@ -1,6 +1,6 @@
-# KDAG Web - Frontend Boilerplate
+# KDAG Web - Frontend
 
-Simple React + Vite + Tailwind boilerplate with `axios` and `lucide-react`.
+Simple React + Vite + Tailwind with `axios` and `lucide-react`.
 
 Quick start:
 
@@ -9,7 +9,6 @@ npm install
 npm run dev
 ```
 
-Files created:
 - package.json
 - vite.config.js
 - tailwind.config.cjs
