@@ -127,7 +127,7 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
                 {/* Bookmarks modal (reuses `open`) */}
                 {open && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center">
-                        <div className="absolute inset-0 bg-black/40" onClick={() => setOpen(false)} />
+                        <div className="absolute inset-0 bg-black/40 backdrop-blur-md" onClick={() => setOpen(false)} />
                         <div className={`relative w-full max-w-lg mx-4 rounded-lg p-6 shadow-lg backdrop-blur-md ${theme === 'dark' ? 'bg-black/80 text-white' : 'bg-white/95 text-black'}`}>
                             <div className="flex items-center justify-between mb-4">
                                 <h3 className="text-lg font-semibold">Bookmarked Posts</h3>
