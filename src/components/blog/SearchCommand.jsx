@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Input from "../ui/Input";
 import Modal from "../ui/Modal";
 
-export default function SearchCommand({ posts, search = false, theme }) {
+export default function SearchCommand({ posts, search = false, theme, home = true }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
@@ -75,10 +75,12 @@ export default function SearchCommand({ posts, search = false, theme }) {
         ))}
       </div>
     </Modal>
-    <button onClick={() => setOpen(true)} className={`fixed bottom-6 right-6 w-14 h-14 rounded-full text-white shadow-lg hover:scale-105 z-50 transition
+    {!home && (
+      <button onClick={() => setOpen(true)} className={`fixed bottom-6 right-6 w-14 h-14 rounded-full text-white shadow-lg hover:scale-105 z-50 transition
       bg-black`}>
         <Search size={28} className=" translate-y-0 translate-x-3.5" />
       </button>
+    )}
     </>
   );
 }

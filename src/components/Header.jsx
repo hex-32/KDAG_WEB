@@ -122,7 +122,7 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
                     </div>
                 </div>
             </header>
-                <SearchCommand posts={posts} search={search} theme={theme} />
+                <SearchCommand posts={posts} search={search} theme={theme} home={home} />
 
                 {/* Bookmarks modal (reuses `open`) */}
                 {open && (
