@@ -28,6 +28,15 @@ export default function BlogDetail() {
   const { posts, status } = usePosts();
   const { bookmarkSet, toggleBookmark } = useBookmarks();
   const post = posts.find((item) => item.id === id);
+  const getInitial = () => {
+    if (typeof window === 'undefined') return 'light'
+    return (
+      localStorage.getItem('theme') ||
+      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    )
+  }
+    
+  const [theme, setTheme] = useState(getInitial)
 
   if (status === "loading") {
     return (
@@ -121,7 +130,7 @@ export default function BlogDetail() {
 
         <aside className="hidden lg:block">
           <div className="translate-y-[10vh] sticky top-20 mb-10 p-4">
-          <TableOfContents content={post.content} />
+          <TableOfContents content={post.content} theme={theme} />
           </div>
         </aside>
       </article>
