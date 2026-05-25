@@ -1,0 +1,91 @@
+[
+  {
+    "id": "semantic-search-qdrant",
+    "title": "Semantic Search With Vector Databases",
+    "author": "Ananya Sen",
+    "date": "2026-03-14",
+    "domain": "Data Science",
+    "tags": ["Qdrant", "Embeddings", "Search"],
+    "summary": "A practical guide to moving beyond keyword matching and building discovery systems that understand intent.",
+    "cover": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "content": "## Why Semantic Search Matters\n\nKeyword search is excellent when users know the exact phrase they want. Blog discovery is different: readers frequently remember ideas, examples, or problems rather than exact wording. Semantic search encodes meaning into vectors so similar ideas can be retrieved even when phrasing differs.\n\nConceptual search boosts recall for exploratory queries and helps readers find the right article even when terminology varies. Measuring semantic relevance requires human evaluation and iterative tuning.\n\n## How It Works\n\nA text encoder transforms content into numeric vectors (embeddings) that capture semantic relationships. These vectors are stored in a vector database like Qdrant and indexed for nearest-neighbor search using ANN algorithms.\n\nChunking long content, deduplicating passages, and storing both passage and document vectors are practical steps to improve retrieval quality.\n\n![Stock image: server racks](https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80)\n\n## Practical Tips\n\nStart with a small evaluation set and iterate on chunk size, embedding model, and reranking strategy. Combine vector search with metadata filters for faster and more precise results."
+  },
+  {
+    "id": "react-routing-patterns",
+    "title": "React Router Patterns For Content Apps",
+    "author": "Priyanshu Mishra",
+    "date": "2026-02-02",
+    "domain": "Web Development",
+    "tags": ["React", "Routing", "UX"],
+    "summary": "How to structure list, detail, profile, and editor pages without turning the frontend into a maze.",
+    "cover": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
+    "content": "## Routes Are Product Decisions\n\nRouting is more than URL plumbing. The shape of your routes communicates product intent: collection pages, detail views, and nested settings all tell users how to explore content. Good routes make deep linking and sharing simple.\n\n## List And Detail\n\nKeep list views lightweight and detail pages focused. Preserve list state (filters, pagination) when navigating to details so users can return without losing context.\n\n![Stock image: roadmap](https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80)\n\n## Protected Routes\n\nDesign protected routes to unlock meaningful features, not to create barriers. Clearly surface which actions require authentication."
+  },
+  {
+    "id": "glass-ui-accessibility",
+    "title": "Making Glass UI Readable",
+    "author": "Tara Nair",
+    "date": "2026-01-18",
+    "domain": "Design",
+    "tags": ["UI", "Accessibility", "Tailwind"],
+    "summary": "Glassmorphism can look premium, but only if contrast, spacing, and surfaces are handled with discipline.",
+    "cover": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    "content": "## Glass Is A Material\n\nGlass works when it supports hierarchy: use it for nav, surfaces, and small cards. Avoid placing long-form text directly on heavy blur.\n\n## Readability Guidelines\n\nHigh contrast, adequate padding, and conservative blur keep text legible. Respect reduced-motion preferences and test with diverse color vision conditions.\n\n![Stock image: glass UI mockup](https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80)\n\n## Implementation Notes\n\nPrefer subtle overlays and use fallback solid surfaces for critical text. Test across device pixel ratios and font-scaling settings."
+  },
+  {
+    "id": "mongodb-content-modeling",
+    "title": "Modeling Blog Content In MongoDB",
+    "author": "Ishan Roy",
+    "date": "2025-12-09",
+    "domain": "Backend",
+    "tags": ["MongoDB", "FastAPI", "Schema"],
+    "summary": "A small but robust content model for posts, users, bookmarks, and verification flows.",
+    "cover": "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1200&q=80",
+    "content": "## Documents Fit Content\n\nChoose document boundaries that match access patterns. Keep content and metadata together for read-heavy blog pages; move large media to object storage.\n\n![Stock image: database servers](https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80)\n\n## Indexing Strategy\n\nIndex by slug, domain, tags, and date. Use compound indexes for common queries and consider partial indexes for draft/published states.\n\n## Operational Tips\n\nMonitor index sizes and query patterns. Use TTL for ephemeral data and archive old posts if retention is a concern."
+  },
+  {
+    "id": "jwt-auth-fastapi",
+    "title": "JWT Auth In FastAPI Without Drama",
+    "author": "Meera Kapoor",
+    "date": "2025-11-27",
+    "domain": "Security",
+    "tags": ["JWT", "Auth", "FastAPI"],
+    "summary": "A clear authentication flow with password hashing, access tokens, and verified accounts.",
+    "cover": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+    "content": "## Start With Password Hashing\n\nAlways hash passwords with a secure algorithm (argon2 or bcrypt). Store salted hashes and avoid storing raw secrets.\n\n## Token Best Practices\n\nScope tokens narrowly, keep lifetimes short, and provide a secure refresh mechanism if needed. Monitor for abuse and allow token revocation.\n\n![Stock image: security](https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80)\n\n## UX Considerations\n\nMake verification flows simple and resilient: time-limited tokens, clear resend flows, and helpful error messages."
+  },
+  {
+    "id": "data-storytelling-dashboard",
+    "title": "Data Storytelling Inside Dashboards",
+    "author": "Rahul Bose",
+    "date": "2025-10-15",
+    "domain": "Analytics",
+    "tags": ["Charts", "Narrative", "UX"],
+    "summary": "How dashboards can guide readers through a problem instead of dropping numbers on a wall.",
+    "cover": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    "content": "## Dashboards Need Flow\n\nNarrative sequencing helps users understand what changed and why. Lead with a headline metric, then show context and drill-downs.\n\n![Stock image: dashboard](https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80)\n\n## Contextual Design\n\nUse annotations and simple comparisons to surface meaning. Avoid decorative charts that don't inform decisions.\n\n## From Insight To Action\n\nLink dashboards to actions: reports, alerts, or tickets that help users follow up on findings."
+  },
+  {
+    "id": "sports-analytics-xg",
+    "title": "Expected Goals For Curious Fans",
+    "author": "Aarav Menon",
+    "date": "2025-09-12",
+    "domain": "Sports",
+    "tags": ["Football", "Analytics", "Modeling"],
+    "summary": "Expected goals explains shot quality and helps separate finishing streaks from repeatable chance creation.",
+    "cover": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=80",
+    "content": "## What xG Measures\n\nExpected goals (xG) estimates the probability a shot becomes a goal. Models consider distance, angle, assist type, pressure, and other contextual features.\n\n## Interpreting xG\n\nUse xG to compare chance quality across matches and players, but combine it with event data and video when diagnosing performance.\n\n![Stock image: football analytics](https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=80)\n\n## Practical Use\n\nTeams use xG to identify defensive lapses and improvements in chance creation. For fans, xG helps separate luck from sustained performance."
+  },
+  {
+    "id": "ml-overfitting-notes",
+    "title": "Overfitting: The Quiet ML Failure",
+    "author": "Soham Gupta",
+    "date": "2025-08-21",
+    "domain": "Machine Learning",
+    "tags": ["ML", "Validation", "Models"],
+    "summary": "A compact explanation of why a model can look brilliant in training and fail badly in the real world.",
+    "cover": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80",
+    "content": "## The Trap\n\nOverfitting happens when a model memorizes patterns in training data that don't generalize. It's common with small datasets or overly expressive models.\n\n![Stock image: model diagnostics](https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80)\n\n## Signals To Watch\n\nMonitor validation gaps, learning curves, and out-of-sample performance. Prefer simpler models when they perform similarly.\n\n## How To Mitigate\n\nUse cross-validation, regularization, data augmentation, and proper feature engineering. Keep an eye on production feedback and drift."
+  }
+]
+
