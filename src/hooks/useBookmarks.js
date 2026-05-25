@@ -16,6 +16,11 @@ export function useBookmarks() {
     });
   };
 
-  return { bookmarks, bookmarkSet, toggleBookmark };
+  const refreshBookmarks = () => {
+    const stored = localStorage.getItem("kdag_bookmarks");
+    setBookmarks(stored ? JSON.parse(stored) : []);
+  };
+
+  return { bookmarks, bookmarkSet, toggleBookmark, refreshBookmarks };
 }
 

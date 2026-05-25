@@ -34,7 +34,7 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
     const [theme, setTheme] = useState(getInitial)
 
     const navigate = useNavigate();
-    const { bookmarks, bookmarkSet } = useBookmarks();
+    const { bookmarks, bookmarkSet, refreshBookmarks } = useBookmarks();
     useEffect(() => {
         // Close sidebar on route change
         const handleRouteChange = () => setOpen(false);
@@ -113,7 +113,7 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
                         />
                         {!home && (
                             <button
-                                onClick={() => setOpen(true)}
+                                onClick={() => { refreshBookmarks(); setOpen(true); }}
                                 className={`flex items-center ${theme === 'dark' ? 'bg-white/20' : 'bg-black/20 text-black/70'} gap-2 px-5 py-2 rounded-full backdrop-blur-md transition  hover:scale-[1.05] text-sm font-medium`}
                             >
                                 Show Bookmarks
@@ -128,7 +128,7 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
                 {open && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center">
                         <div className="absolute inset-0 bg-black/40 backdrop-blur-md" onClick={() => setOpen(false)} />
-                        <div className={`relative w-full max-w-lg mx-4 rounded-lg p-6 shadow-lg backdrop-blur-md ${theme === 'dark' ? 'bg-black/80 text-white' : 'bg-white/95 text-black'}`}>
+                        <div className={`relative w-full max-w-lg mx-4 rounded-lg p-6 shadow-lg backdrop-blur-md ${theme === 'dark' ? 'bg-black/80 text-white' : 'bg-white/95 text-black'} animate-slide-in`}>
                             <div className="flex items-center justify-between mb-4">
                                 <h3 className="text-lg font-semibold">Bookmarked Posts</h3>
                                 <button className="text-sm opacity-80 hover:scale-110" onClick={() => setOpen(false)}><XIcon /></button>
