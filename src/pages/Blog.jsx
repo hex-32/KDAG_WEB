@@ -62,6 +62,7 @@ export default function Home() {
 
         <div className={`min-w-0 space-y-4 translate-y-20 ${!show && "-translate-x-[10%]"}`}>
           <FeaturedPost post={featured} />
+          <div className="border rounded-lg">
           <FilterBar
             query={filters.query}
             setQuery={filters.setQuery}
@@ -71,6 +72,7 @@ export default function Home() {
             setView={filters.setView}
             onOpenFilters={() => setDrawerOpen(true)}
           />
+          </div>
 
 
           <BlogGrid posts={filters.filteredPosts} bookmarkSet={bookmarkSet} onBookmark={toggleBookmark} 

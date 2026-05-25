@@ -11,7 +11,7 @@ export default function FeaturedPost({ post }) {
       <div className="glass rounded-lg p-5 sm:p-7 border border-white/20">
         <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-glow/35 bg-glow/12 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-ink">
           <Sparkles className="size-3.5" />
-          Featured
+          LATEST
         </div>
         <h1 className="max-w-3xl font-display text-4xl font-black leading-none sm:text-5xl lg:text-6xl">
           {post.title}

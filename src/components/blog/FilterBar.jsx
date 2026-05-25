@@ -11,7 +11,7 @@ export default function FilterBar({ query, setQuery, resultCount, source, view, 
           <Input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search by title or author"
+            placeholder="Search by title or author within sorted results..."
             className="pl-10"
           />
         </div>

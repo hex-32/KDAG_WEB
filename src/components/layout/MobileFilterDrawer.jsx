@@ -20,9 +20,9 @@ export default function MobileFilterDrawer({ open, onClose, posts, domains, tags
             <SlidersHorizontal className="size-4" />
             <h2 className="text-base font-bold">Filters</h2>
           </div>
-          <Button variant="ghost" className="size-9 px-0" onClick={onClose} aria-label="Close">
-            <X className="size-4" />
-          </Button>
+          <button  className="size-9 px-0 hover:scale-105" onClick={onClose} >
+            <X className="size-7" />
+          </button>
         </div>
 
         <div className="space-y-5">
