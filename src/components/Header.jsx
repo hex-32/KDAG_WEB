@@ -131,7 +131,7 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
                         <div className={`relative w-full max-w-lg mx-4 rounded-lg p-6 shadow-lg backdrop-blur-md ${theme === 'dark' ? 'bg-black/80 text-white' : 'bg-white/95 text-black'}`}>
                             <div className="flex items-center justify-between mb-4">
                                 <h3 className="text-lg font-semibold">Bookmarked Posts</h3>
-                                <button className="text-sm opacity-80" onClick={() => setOpen(false)}><XIcon /></button>
+                                <button className="text-sm opacity-80 hover:scale-110" onClick={() => setOpen(false)}><XIcon /></button>
                             </div>
                             <div className="space-y-3 max-h-72 overflow-auto">
                                 {posts && posts.filter((p) => bookmarkSet.has(p.id)).length === 0 ? (
@@ -144,7 +144,7 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
                                                 <div className="text-sm text-muted">{p.author}</div>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <button onClick={() => { navigate(`/posts/${p.id}`); setOpen(false); }} className={`text-sm font-medium ${theme === 'dark' ? 'text-cyan-300' : 'text-cyan-600'}`}>Open</button>
+                                                <button onClick={() => { navigate(`/posts/${p.id}`); setOpen(false); }} className={`text-sm font-medium -translate-x-2 ${theme === 'dark' ? 'text-cyan-300' : 'text-cyan-600'} hover:scale-110`}>Open</button>
                                             </div>
                                         </div>
                                     ))

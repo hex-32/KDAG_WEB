@@ -4,20 +4,42 @@ import Badge from "../ui/Badge";
 import Button from "../ui/Button";
 import GlassPanel from "../ui/GlassPanel";
 import { ArrowLeftIcon } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Sidebar({ posts, domains, tags, onDomain, onTag, onClear, onl }) {
   const allDomains = getDomains(posts);
   const [show, setShow] = useState(true);
+  const [manualOverride, setManualOverride] = useState(false);
   const allTags = getTags(posts);
   const oncl = () => {
     setShow(false);
     onl(false);
+    setManualOverride(true);
   }
   const onclp = () => {
     setShow(true);
     onl(true);
+    setManualOverride(true);
   }
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handleScroll = () => {
+      if (manualOverride) return; // user used arrows — stop auto toggling
+      const y = window.scrollY || 0;
+      if (y > 200 && show) {
+        setShow(false);
+        onl(false);
+      } else if (y <= 200 && !show) {
+        setShow(true);
+        onl(true);
+      }
+    };
+    // check once on mount
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [show, onl, manualOverride]);
 
   return (
     <aside className="hidden xl:block">

@@ -32,6 +32,8 @@ const Home = () => {
             canvas.height = window.innerHeight;
         };
         setSize();
+        // start ripple centered on the canvas
+        
         window.addEventListener('resize', setSize);
 
         // 2. Configuration
@@ -43,7 +45,8 @@ const Home = () => {
         let rippleStrength = 0;
         let lastClientX = -1000;
         let lastClientY = -1000;
-
+        lastClientX = window.innerWidth / 2;
+        lastClientY = window.innerHeight / 2 + 80;
         // NEW: Time variable to drive the continuous organic movement
         let time = 0;
 
@@ -82,6 +85,8 @@ const Home = () => {
         };
 
         window.addEventListener('mousemove', handleMouseMove);
+        // ensure initial center is applied to mouse coordinates
+        updateMousePosition();
         window.addEventListener('scroll', handleScroll, { passive: true });
 
         // 4. Render Loop
