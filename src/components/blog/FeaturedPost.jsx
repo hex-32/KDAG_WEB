@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { formatDate } from "../../utils/formatDate";
 import Button from "../ui/Button";
 
-export default function FeaturedPost({ post }) {
+export default function FeaturedPost({ post, theme }) {
   if (!post) return null;
 
   return (
     <section className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr] rounded-xl p-6 lg:p-10 hover:scale-[1.02] transition-all duration-300 ease-in-out">
-      <div className="glass rounded-lg p-5 sm:p-7 border border-white/20">
-        <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-glow/35 bg-glow/12 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-ink">
+      <div className={`glass rounded-lg p-5 sm:p-7 border ${theme==="dark" ? "border-white/20" : "border-black/20"}`}>
+        <div className="mb-5 inline-flex items-center gap-2 rounded-md border  bg-glow/12 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-ink">
           <Sparkles className="size-3.5" />
           LATEST
         </div>

@@ -61,7 +61,7 @@ export default function Home() {
         />
 
         <div className={`min-w-0 space-y-4 translate-y-20 transition-transform duration-300 ease ${!show && "-translate-x-[10%]"}`}>
-          <FeaturedPost post={featured} />
+          <FeaturedPost post={featured} theme={theme} />
           <div className="border rounded-lg">
           <FilterBar
             query={filters.query}
