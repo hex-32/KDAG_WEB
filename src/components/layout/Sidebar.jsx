@@ -25,6 +25,7 @@ export default function Sidebar({ posts, domains, tags, onDomain, onTag, onClear
   useEffect(() => {
     if (typeof window === "undefined") return;
     const handleScroll = () => {
+      if (window.innerWidth < 1280) return;
       if (manualOverride) return; // user used arrows — stop auto toggling
       const y = window.scrollY || 0;
       if (y > 200 && show) {
@@ -38,6 +39,7 @@ export default function Sidebar({ posts, domains, tags, onDomain, onTag, onClear
     // check once on mount
     handleScroll();
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [show, onl, manualOverride]);
 
