@@ -25,8 +25,7 @@ export default function TableOfContents({ content, theme }) {
         const el = document.getElementById(id);
         if (!el) continue;
         const rect = el.getBoundingClientRect();
-        // consider a heading active when it's near the top (account for fixed header)
-        if (rect.top <= 120) {
+        if (rect.top <= window.innerHeight / 2) {
           current = id;
         }
       }

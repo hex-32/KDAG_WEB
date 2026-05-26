@@ -24,9 +24,7 @@ export default function FilterBar({ query, setQuery, resultCount, source, view, 
       </div>
 
       <div className="mt-3 flex flex-wrap items-center gap-2 text-xs font-semibold text-muted">
-        <span>{resultCount} results</span>
-        <span className="text-line">/</span>
-        <span>{source === "api" ? "API data" : "Local data"}</span>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{resultCount} results</span>
       </div>
     </div>
   );

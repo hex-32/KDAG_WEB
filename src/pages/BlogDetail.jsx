@@ -6,7 +6,7 @@ import RelatedPosts from "../components/blog/RelatedPosts";
 import TableOfContents from "../components/blog/TableOfContents";
 import Button from "../components/ui/Button";
 import { useBookmarks } from "../hooks/useBookmarks";
-import { usePosts } from "../hooks/usePosts";
+import { usePost } from "../hooks/usePost";
 import { formatDate } from "../utils/formatDate";
 import { readingTime } from "../utils/readingTime";
 import Header from "../components/Header";
@@ -25,7 +25,7 @@ export default function BlogDetail() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const { id } = useParams();
-  const { posts, status } = usePosts();
+  const { posts, status } = usePost({ id });
   const { bookmarkSet, toggleBookmark } = useBookmarks();
   const post = posts.find((item) => item.id === id);
   const getInitial = () => {
@@ -129,7 +129,7 @@ export default function BlogDetail() {
         </div>
 
         <aside className="hidden lg:block">
-          <div className="translate-y-[10vh] sticky top-20 mb-10 p-4">
+          <div className="translate-y-[10vh] sticky top-20 mb-40 p-4">
           <TableOfContents content={post.content} theme={theme} />
           </div>
         </aside>

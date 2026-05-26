@@ -33,7 +33,7 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const featured = posts[0];
+  const featured = posts[posts.length - 1] || null;
   const handleShow = (val) => {
     setShow(val);
   }
@@ -60,7 +60,7 @@ export default function Home() {
           onl = {handleShow}
         />
 
-        <div className={`min-w-0 space-y-4 translate-y-20 ${!show && "-translate-x-[10%]"}`}>
+        <div className={`min-w-0 space-y-4 translate-y-20 transition-transform duration-300 ease ${!show && "-translate-x-[10%]"}`}>
           <FeaturedPost post={featured} />
           <div className="border rounded-lg">
           <FilterBar

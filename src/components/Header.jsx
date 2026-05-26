@@ -9,10 +9,13 @@ import ppob from "../assets/ppob.png";
 import SearchCommand from "./blog/SearchCommand";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { XIcon } from "lucide-react";
+import { Plus } from "lucide-react";
+import CreatePostModal from "./CreatePostModal";
 
 function Header({ show = false, small = false, home = false, posts = [] }) {
     const [open, setOpen] = useState(false);
     const[search, setSearch] = useState(false);
+    const [createOpen, setCreateOpen] = useState(false);
     const ss = () => {
         if (search === false) {
             setSearch(true);
@@ -112,6 +115,11 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
                             val={setTh}
                         />
                         {!home && (
+                            <button onClick={() => setCreateOpen(true)} className={`flex items-center gap-2 px-3 py-2 rounded-full ${theme === 'dark' ? 'bg-white/10 text-white ' : 'bg-black/10 text-black'} transition hover:scale-[1.05] transition-all duration-300 ease`}>
+                                <Plus />
+                            </button>
+                        )}
+                        {!home && (
                             <button
                                 onClick={() => { refreshBookmarks(); setOpen(true); }}
                                 className={`flex items-center ${theme === 'dark' ? 'bg-white/20' : 'bg-black/20 text-black/70'} gap-2 px-5 py-2 rounded-full backdrop-blur-md transition  hover:scale-[1.05] text-sm font-medium`}
@@ -124,7 +132,9 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
             </header>
                 <SearchCommand posts={posts} search={search} theme={theme} home={home} />
 
-                {/* Bookmarks modal (reuses `open`) */}
+                <CreatePostModal open={createOpen} onClose={() => setCreateOpen(false)} onSubmit={(payload) => { console.log('Created post payload', payload); }} theme={theme} posts={posts} />
+
+
                 {open && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center">
                         <div className="absolute inset-0 bg-black/40 backdrop-blur-md" onClick={() => setOpen(false)} />
