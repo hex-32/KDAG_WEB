@@ -25,7 +25,7 @@ export default function TableOfContents({ content, theme }) {
         const el = document.getElementById(id);
         if (!el) continue;
         const rect = el.getBoundingClientRect();
-        if (rect.top <= window.innerHeight / 2) {
+        if (rect.top <= window.innerHeight / 3) {
           current = id;
         }
       }
