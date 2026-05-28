@@ -81,14 +81,14 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
 
                 {/* LEFT SECTION */}
                 <div className="flex items-center gap-4">
-                    <img src={logo} alt="PPO Logo" className="w-[60px] -mt-1 max-sm:rounded-full" />
+                    <img src={logo} alt="PPO Logo" className="w-[60px] -mt-1 max-sm:rounded-full" onClick={() => navigate("/")}/>
                     <div
                         className="flex flex-col leading-tight hover:cursor-pointer"
                         onClick={() => navigate("/")}
                     >
 
-                        <img src={ppo} alt="PPO Logo" className="w-[200px] max-sm:hidden" hidden={theme === 'light'} />
-                        <img src={ppob} alt="PPO Logo" className="w-[200px] max-sm:hidden" hidden={theme === 'dark'} />
+                        <img src={ppo} alt="PPO Logo" className="w-[200px] " hidden={theme === 'light' || (window.innerWidth < 768 && home === false)} />
+                        <img src={ppob} alt="PPO Logo" className="w-[200px] " hidden={theme === 'dark' || (window.innerWidth < 768 && home === false)} />
                         {/* <span className={`text-[9px] tracking-[1px] ${theme === 'dark' ? "text-white/70": "text-black/70"}`}>
                             &nbsp;&nbsp;Your One-Stop AI/ML Research Hub
                         </span> */}
