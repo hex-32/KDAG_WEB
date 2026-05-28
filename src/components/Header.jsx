@@ -80,7 +80,7 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
             >
 
                 {/* LEFT SECTION */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center sm:gap-4 max-sm:gap-2">
                     <img src={logo} alt="PPO Logo" className="w-[60px] -mt-1 max-sm:rounded-full" onClick={() => navigate("/")}/>
                     <div
                         className="flex flex-col leading-tight hover:cursor-pointer"
