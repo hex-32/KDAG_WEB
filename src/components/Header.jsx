@@ -124,7 +124,7 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
                                 onClick={() => { refreshBookmarks(); setOpen(true); }}
                                 className={`flex items-center ${theme === 'dark' ? 'bg-white/20' : 'bg-black/20 text-black/70'} gap-2 px-5 py-2 rounded-full backdrop-blur-md transition  hover:scale-[1.05] text-sm font-medium`}
                             >
-                                Show Bookmarks
+                                Show<br>Bookmarks
                             </button>
                         )}
                     </div>
