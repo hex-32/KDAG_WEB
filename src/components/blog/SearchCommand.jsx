@@ -37,7 +37,7 @@ export default function SearchCommand({ posts, search = false, theme, home = tru
     if (!needle) return posts.slice(0, 6);
     return posts
       .filter((post) =>
-        [post.title, post.author, post.domain, ...post.tags].some((value) => value.toLowerCase().includes(needle)),
+        [post.title, post.author, post.summary, post.domain, ...post.tags].some((value) => value.toLowerCase().includes(needle)),
       )
       .slice(0, 8);
   }, [posts, query]);
