@@ -12,9 +12,9 @@ import { XIcon } from "lucide-react";
 import { Plus } from "lucide-react";
 import CreatePostModal from "./CreatePostModal";
 
-function Header({ show = false, small = false, home = false, posts = [] }) {
+function Header({ show = false, small = false, home = false, posts = [], read = false }) {
     const [open, setOpen] = useState(false);
-    const[search, setSearch] = useState(false);
+    const [search, setSearch] = useState(false);
     const [createOpen, setCreateOpen] = useState(false);
     const ss = () => {
         if (search === false) {
@@ -114,6 +114,13 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
                         <ThemeToggle
                             val={setTh}
                         />
+                        {(window.innerWidth < 768) ? "" : read ? (
+                            <button onClick={() => navigate("/blog")} className={`flex items-center gap-2 px-3 py-2 rounded-full ${theme === 'dark' ? 'bg-white/10 text-white ' : 'bg-black/10 text-black'} transition hover:scale-[1.05] transition-all duration-300 ease`}>
+                                Explore More
+                            </button>
+                        ) : (
+                            <></>
+                        )}
                         {!home && (
                             <button onClick={() => setCreateOpen(true)} className={`flex items-center gap-2 px-3 py-2 rounded-full ${theme === 'dark' ? 'bg-white/10 text-white ' : 'bg-black/10 text-black'} transition hover:scale-[1.05] transition-all duration-300 ease`}>
                                 <Plus />
@@ -130,39 +137,39 @@ function Header({ show = false, small = false, home = false, posts = [] }) {
                     </div>
                 </div>
             </header>
-                <SearchCommand posts={posts} search={search} theme={theme} home={home} />
+            <SearchCommand posts={posts} search={search} theme={theme} home={home} />
 
-                <CreatePostModal open={createOpen} onClose={() => setCreateOpen(false)} onSubmit={(payload) => { console.log('Created post payload', payload); }} theme={theme} posts={posts} />
+            <CreatePostModal open={createOpen} onClose={() => setCreateOpen(false)} onSubmit={(payload) => { console.log('Created post payload', payload); }} theme={theme} posts={posts} />
 
 
-                {open && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center">
-                        <div className="absolute inset-0 bg-black/40 backdrop-blur-md" onClick={() => setOpen(false)} />
-                        <div className={`relative w-full max-w-lg mx-4 rounded-lg p-6 shadow-lg backdrop-blur-md ${theme === 'dark' ? 'bg-black/80 text-white' : 'bg-white/95 text-black'} animate-slide-in`}>
-                            <div className="flex items-center justify-between mb-4">
-                                <h3 className="text-lg font-semibold">Bookmarked Posts</h3>
-                                <button className="text-sm opacity-80 hover:scale-110" onClick={() => setOpen(false)}><XIcon /></button>
-                            </div>
-                            <div className="space-y-3 max-h-72 overflow-auto">
-                                {posts && posts.filter((p) => bookmarkSet.has(p.id)).length === 0 ? (
-                                    <div className="text-sm text-muted">No bookmarks yet.</div>
-                                ) : (
-                                    posts.filter((p) => bookmarkSet.has(p.id)).map((p) => (
-                                        <div key={p.id} className="flex items-start justify-between gap-4">
-                                            <div>
-                                                <div className="font-medium">{p.title}</div>
-                                                <div className="text-sm text-muted">{p.author}</div>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <button onClick={() => { navigate(`/posts/${p.id}`); setOpen(false); }} className={`text-sm font-medium -translate-x-2 ${theme === 'dark' ? 'text-cyan-300' : 'text-cyan-600'} hover:scale-110`}>Open</button>
-                                            </div>
+            {open && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/40 backdrop-blur-md" onClick={() => setOpen(false)} />
+                    <div className={`relative w-full max-w-lg mx-4 rounded-lg p-6 shadow-lg backdrop-blur-md ${theme === 'dark' ? 'bg-black/80 text-white' : 'bg-white/95 text-black'} animate-slide-in`}>
+                        <div className="flex items-center justify-between mb-4">
+                            <h3 className="text-lg font-semibold">Bookmarked Posts</h3>
+                            <button className="text-sm opacity-80 hover:scale-110" onClick={() => setOpen(false)}><XIcon /></button>
+                        </div>
+                        <div className="space-y-3 max-h-72 overflow-auto">
+                            {posts && posts.filter((p) => bookmarkSet.has(p.id)).length === 0 ? (
+                                <div className="text-sm text-muted">No bookmarks yet.</div>
+                            ) : (
+                                posts.filter((p) => bookmarkSet.has(p.id)).map((p) => (
+                                    <div key={p.id} className="flex items-start justify-between gap-4">
+                                        <div>
+                                            <div className="font-medium">{p.title}</div>
+                                            <div className="text-sm text-muted">{p.author}</div>
                                         </div>
-                                    ))
-                                )}
-                            </div>
+                                        <div className="flex items-center gap-2">
+                                            <button onClick={() => { navigate(`/posts/${p.id}`); setOpen(false); }} className={`text-sm font-medium -translate-x-2 ${theme === 'dark' ? 'text-cyan-300' : 'text-cyan-600'} hover:scale-110`}>Open</button>
+                                        </div>
+                                    </div>
+                                ))
+                            )}
                         </div>
                     </div>
-                )}
+                </div>
+            )}
         </>
     );
 }

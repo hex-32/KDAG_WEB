@@ -59,7 +59,7 @@ export default function BlogDetail() {
 
   return (
     <>
-      <Header show={true} small={scrollY > 100} home={true} />
+      <Header show={true} small={scrollY > 100} home={true} read={true} />
       <ReadingProgress />
       <article className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] px-4 lg:px-8">
         <div className="min-w-0 mt-24 mb-20 mx-auto w-full max-w-4xl">
